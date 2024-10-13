@@ -51,7 +51,7 @@ def generate_headers(devicetoken, deviceid, token=""):
 class UUAccount:
     def __init__(self, token: str):
         """
-        :param token: 通过抓包获得的token
+        :param token: 通过抓包获得的token/Token obtained by capturing packets
         """
         self.session = requests.Session()
         self.ignore_list = []
@@ -80,13 +80,15 @@ class UUAccount:
     def send_login_sms_code(phone, session: str, headers={}, region_code=86):
         """
         发送登录短信验证码
-        :param phone: 手机号
-        :param session: 可以通过UUAccount.get_random_session_id()获得
+        :param phone: 手机号/ phone number
+        :param session: 可以通过UUAccount.get_random_session_id()获得 can be obtained with UUAccount.get_random_session_id()
         :return:
         """
+        print(headers)
+        print(session)
         return requests.post(
             "https://api.youpin898.com/api/user/Auth/SendSignInSmsCode",
-            json={"Area": region_code, "Mobile": phone, "Sessionid": session, "Code": ""},
+            json={"Area": '31', "Mobile": '649540298', "Sessionid": session},
             headers=headers,
         ).json()
 
@@ -94,7 +96,7 @@ class UUAccount:
     def sms_sign_in(phone, code, session, headers={}):
         """
         通过短信验证码登录，返回值内包含Token
-        :param phone: 发送验证码时的手机号
+        :param phone: 发送验证码时的手机号/The mobile phone number used to send the verification code
         :param code: 短信验证码
         :param session: 可以通过UUAccount.get_random_session_id()获得，必须和发送验证码时的session一致
         :return:

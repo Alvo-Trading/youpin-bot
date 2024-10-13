@@ -10,7 +10,6 @@ import json5
 import requests
 from requests.exceptions import ConnectionError, ReadTimeout
 
-from steampy.exceptions import ApiException, ConfirmationExpected, EmptyResponse, InvalidCredentials, InvalidResponse, SteamError
 from utils.static import BUILD_INFO, CURRENT_VERSION, LOGS_FOLDER, get_is_latest_version, STEAM_ERROR_CODES, CONFIG_FILE_PATH
 
 sensitive_data = []
