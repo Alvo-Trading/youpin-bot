@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "youpin helper",
+  "short_name": "youpin helper",
+  "version": "0.1",
+  "description": "youpin helper",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "scripting",
+    "storage",
+    "unlimitedStorage",
+    "activeTab",
+    "tabs",
+    "alarms",
+    "declarativeNetRequestWithHostAccess",
+    "nativeMessaging",
+    "debugger"
+  ],
+  "host_permissions": [
+    "*://*.youpin898.com/*",
+    "*://*.google.com/*",
+    "*://127.0.0.1/*",
+    "*://*.adyen.com/*",
+    "*://*.google-analytics.com/*",
+    "*://*.sentry.io/*",
+    "*://5.9.11.212/*",
+    "*://discord.com/*",
+    "<all_urls>"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["on-site/*.js"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "externally_connectable": {
+    "matches": ["*://*.youpin898.com/*"]
+  }
+}
